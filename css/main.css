@@ -1,0 +1,102 @@
+html, body {
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: ghostwhite;
+}
+
+h1, h2 {
+    margin-top: 0;
+    color: #4f4f4f;
+}
+
+h1.name {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a.social {
+    text-decoration: none;
+    color: black;
+    margin-right: 8px;
+    margin-bottom: 16px;
+}
+
+a.social:hover {
+    color: gray;
+}
+
+.card {
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: white;
+    border-radius: 4px;
+    transition: 0.4s;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 24px auto 24px;
+}
+
+.intro-card {
+    min-height: 150px;
+}
+
+.profile-picture {
+    max-width: 150px;
+    float: right;
+    margin-bottom: 16px;
+    border-radius: 50%;
+}
+
+@media only screen and (max-width: 700px) {
+    .card {
+        margin: 24px;
+    }
+
+    .profile-picture {
+        max-width: 200px;
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 50%;
+    }
+
+    .intro-card {
+        text-align: center;
+    }
+
+    h2.time {
+        float: none;
+        text-align: center;
+        margin-top: -1rem;
+    }
+}
+
+#workhistory {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#workhistory td, #workhistory th {
+    padding: 4px;
+}
+
+#workhistory th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.blank_row {
+    height: 16px;
+}
