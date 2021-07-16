@@ -27,7 +27,7 @@ a {
 
 a.social {
     text-decoration: none;
-    color: black;
+    color: #3DDC84;
     margin-right: 8px;
     margin-bottom: 16px;
 }
@@ -95,16 +95,8 @@ a.social:hover {
     word-break: break-all;
 }
 
-.chronotable td, .chronotable th {
+.chronotable td {
     padding: 4px;
-}
-
-.chronotable th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
 }
 
 .chronotable td.image-column {
