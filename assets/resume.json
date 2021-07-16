@@ -1,0 +1,205 @@
+{
+  "basics": {
+    "name": "Tim Gortworst",
+    "profession": "Android Software Engineer",
+    "image": "https://avatars.githubusercontent.com/u/12411940",
+    "interests": ["cycling", "motorcycling", "boardgames", "programming"],
+    "summary": "The things you create with Android are close to the end-user. It gives a great feeling of accomplishment when millions of people use the products that I help to develop. The Android ecosystem changes relatively quick. New things are added or changed every year. So there is always something new to learn or discover.",
+    "location": {
+      "countryCode": "NL",
+      "city": "Amsterdam"
+    },
+    "socials": [
+      {
+        "network": "LinkedIn",
+        "username": "tim-gortworst",
+        "url": "https://www.linkedin.com/in/tim-gortworst/"
+      },
+      {
+        "network": "GitHub",
+        "username": "timgw",
+        "url": "https://github.com/timgw"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "NOS",
+      "position": "Android Software Engineer",
+      "startDate": "2019-04-30",
+      "endDate": "",
+      "summary": "Projects: NOS nieuws, Jeugdjournaal & Teletekst",
+      "url": "https://www.linkedin.com/company/165224"
+    },
+    {
+      "name": "Accenture Interactive Amsterdam",
+      "position": "Android Software Engineer",
+      "startDate": "2017-09-30",
+      "endDate": "2019-03-31",
+      "summary": "Clients: Grandvision, Plus Supermarkten & de Nationale Politie",
+      "url": "https://www.linkedin.com/company/860058"
+    },
+    {
+      "name": "Amsterdam University of Applied Sciences",
+      "position": "(Java) Teaching Assistant",
+      "startDate": "2016-02-28",
+      "endDate": "2017-01-31",
+      "summary": "Temporary position as teaching assistant for an IT retraining program (Make IT work) \nhttps://it-omscholing.nl/",
+      "url": "https://www.linkedin.com/company/6945"
+    },
+    {
+      "name": "Studentaanhuis",
+      "position": "Computer Consultant",
+      "startDate": "2013-12-31",
+      "endDate": "2016-02-28",
+      "summary": "Side job as computer consultant, performing house visits to fix software related problems for clients",
+      "url": "https://www.linkedin.com/company/328714"
+    },
+    {
+      "name": "go2UBL",
+      "position": "Junior Software Engineer",
+      "startDate": "2015-06-30",
+      "endDate": "2015-09-30",
+      "summary": "Temporary summer job. Added extra functionalities to the Go2UBL platform.",
+      "url": "https://www.linkedin.com/company/5098997"
+    },
+    {
+      "name": "ASVA studentenunie",
+      "position": "Webdeveloper",
+      "startDate": "2015-06-30",
+      "endDate": "2015-08-30",
+      "summary": "Created the 2015 edition of kersvers.org",
+      "url": "https://www.linkedin.com/company/asva-student-union/"
+    }
+  ],
+  "education": [
+    {
+      "institution": "Amsterdam University of Applied Sciences",
+      "area": "Computer Science (Software engineering)",
+      "studyType": "Bachelor of Science",
+      "startDate": "2013-09-01",
+      "endDate": "2017-07-31",
+      "gpa": "8.0"
+    },
+    {
+      "institution": "Amsterdam University of Applied Sciences",
+      "area": "Social Legal Services",
+      "studyType": "Bachelor of Laws",
+      "startDate": "2009-09-01",
+      "endDate": "2013-07-31",
+      "gpa": "8.0"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Android",
+      "level": "experienced",
+      "keywords": ["framework"]
+    },
+    {
+      "name": "Kotlin",
+      "level": "experienced",
+      "keywords": ["language"]
+    },
+    {
+      "name": "Java",
+      "level": "experienced",
+      "keywords": ["language"]
+    },
+    {
+      "name": "Scrum",
+      "level": "experienced",
+      "keywords": ["framework", "PSM1 certified"]
+    },
+    {
+      "name": "Kotlin coroutines",
+      "level": "intermediate",
+      "keywords": []
+    },
+    {
+      "name": "Kotlin Flow",
+      "level": "novice",
+      "keywords": []
+    },
+    {
+      "name": "RxJava",
+      "level": "novice",
+      "keywords": []
+    },
+    {
+      "name": "CI / CD",
+      "level": "experienced",
+      "keywords": ["Jenkins, Bitrise, Google Play"]
+    },
+    {
+      "name": "Firebase",
+      "level": "experienced",
+      "keywords": ["ML Kit", "AB testing", "Firestore", "Auth"]
+    },
+    {
+      "name": "ViewModel",
+      "level": "experienced",
+      "keywords": ["Android architecture components"]
+    },
+    {
+      "name": "LiveData",
+      "level": "experienced",
+      "keywords": ["Android architecture components"]
+    },
+    {
+      "name": "Dagger",
+      "level": "experienced",
+      "keywords": ["Dependency Injection"]
+    },
+    {
+      "name": "Hilt",
+      "level": "experienced",
+      "keywords": ["Dependency Injection"]
+    },
+    {
+      "name": "Koin",
+      "level": "intermediate",
+      "keywords": ["Service Locator"]
+    },
+    {
+      "name": "Retrofit",
+      "level": "experienced",
+      "keywords": ["HTTP client"]
+    },
+    {
+      "name": "Glide",
+      "level": "Experienced",
+      "keywords": ["Persistence", "Images"]
+    },
+    {
+      "name": "Picasso",
+      "level": "Intermediate",
+      "keywords": ["Persistence", "Images"]
+    },
+    {
+      "name": "Room",
+      "level": "Experienced",
+      "keywords": ["Persistence", "Android architecture components"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Dutch",
+      "fluency": "Native Speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Professional"
+    }
+  ],
+  "references": [
+    {
+      "name": "Wilco van Gog",
+      "reference": "I had the pleasure to work with Tim on the Police. Tim started as a junior android developer but he developed himself so much in such a short time so he is anything but a junior now! He can work at great speed and make any design come to live on android. To have Tim in your team is a big plus, he works fast and accurate, understands the way how scrum should be done and is always in for a laugh now and then."
+    },
+    {
+      "name": "Margo de Graaf",
+      "reference": "I’ve had the pleasure working with Tim on the Dutch police project. As a designer, I’ve learned so much from Tim about Android for which I am truly grateful. Tim knows what he is talking about, eager to keep learning and always tries to think along. Next to that, Tim works hard, but always has time for a good talk or some fun. Keep up the great work and I hope our paths will cross again someday in the future!"
+    }
+  ]
+}
