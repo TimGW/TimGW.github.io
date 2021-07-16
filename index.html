@@ -227,10 +227,23 @@
     </table>
 </div>
 
-<div class="img-wrapper center">
+<div id="android" class="img-wrapper center">
     <img src="assets/android-white.svg" alt="image" />
 </div>
 
+<script type="text/javascript">
+    var count = 0;
+    const threshold = 7;
+    const android = document.getElementById("android");
+
+    android.onclick = function () {
+        count++;
+        if (count === threshold) {
+            count = 0;
+            alert("Hello World!");
+        }
+    }
+</script>
 </body>
 
 </html>
