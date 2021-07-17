@@ -25,11 +25,16 @@ a {
     color: #3DDC84;
 }
 
-a.social {
+.social {
     text-decoration: none;
     color: #3DDC84;
     margin-right: 8px;
     margin-bottom: 16px;
+}
+
+.json {
+    vertical-align: bottom !important;
+    line-height: 0 !important;
 }
 
 a.social:hover {
@@ -101,11 +106,22 @@ a.social:hover {
 .img-wrapper {
     display: block;
     max-width: 5em;
+}
+
+.brackets {
+    background: url(../assets/brackets-grey.svg) no-repeat;
+}
+
+.android {
     background: url(../assets/android.svg) no-repeat;
 }
 
 .img-wrapper > img {
     vertical-align: top;
+}
+
+.img-wrapper > a > img:hover {
+    opacity: 0;
 }
 
 .img-wrapper > img:hover {
