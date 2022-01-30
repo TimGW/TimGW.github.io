@@ -24,10 +24,18 @@
   },
   "work": [
     {
+      "name": "TM-Pro",
+      "position": "Android Software Engineer",
+      "startDate": "2021-12-01",
+      "endDate": null,
+      "summary": "Solutions: Android SDK for KYC & Money Management",
+      "url": "https://www.linkedin.com/company/tmpro"
+    },
+    {
       "name": "NOS",
       "position": "Android Software Engineer",
       "startDate": "2019-04-30",
-      "endDate": "",
+      "endDate": "2021-11-31",
       "summary": "Projects: NOS nieuws, Jeugdjournaal & Teletekst",
       "url": "https://www.linkedin.com/company/165224"
     },
