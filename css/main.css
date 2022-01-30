@@ -112,6 +112,10 @@ a.social:hover {
     background: url(../assets/brackets-grey.svg) no-repeat;
 }
 
+.small-text {
+    font-size: 14px;
+}
+
 #android {
     background: url(../assets/android.svg) no-repeat;
 }
