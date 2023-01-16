@@ -132,6 +132,18 @@ a.social:hover {
     opacity: 0;
 }
 
+.chip {
+    display: inline-block;
+    padding: 0 10px;
+    height: 25spx;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 25px;
+    margin: 2px;
+    color: white;
+    background-color: #3DDC84;
+  }
+
 @media only screen and (max-width: 801px) {
     .card {
         margin: 24px;
