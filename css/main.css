@@ -169,7 +169,7 @@ a.social:hover {
     user-select: none; /* -- Prevent image highlighting -- */
 }
 
-#image-track > img {
+#image-track > .image {
     width: 20vmin;
     height: 30vmin;
     object-fit: cover;
