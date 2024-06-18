@@ -8,11 +8,19 @@ const handleOnUp = () => {
   track.dataset.prevPercentage = track.dataset.percentage;
 }
 
+
 const handleOnMove = e => {
   if(track.dataset.mouseDownAt === "0") return;
   
+  let touchDevice;
+  if ('ontouchstart' in document.documentElement) {
+    touchDevice = 1;
+  } else {
+    touchDevice = 2;
+  }
+
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth / 2;
+        maxDelta = window.innerWidth / touchDevice;
   
   const percentage = (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
