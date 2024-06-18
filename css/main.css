@@ -112,10 +112,6 @@ a.social:hover {
     width: 50%;
 }
 
-.top-margin {
-    margin-top: 20%;
-}
-
 .img-wrapper {
     display: block;
     max-width: 5em;
@@ -131,6 +127,7 @@ a.social:hover {
 
 #android {
     background: url(../assets/android.svg) no-repeat;
+    margin-top: 20vmin;
 }
 
 .img-wrapper > img {
@@ -186,12 +183,12 @@ a.social:hover {
     }
 
     .profile-picture {
-        max-width: 200px;
-        float: none;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 50%;
+        /* max-width: 200px; */
+        /* float: none; */
+        display: none;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
+        /* border-radius: 50%; */
     }
 
     .intro-card {
