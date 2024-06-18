@@ -142,7 +142,7 @@ a.social:hover {
     opacity: 0;
 }
 
-.chip {
+#chips > p {
     display: inline-block;
     padding: 0 10px;
     height: 25spx;
@@ -152,7 +152,7 @@ a.social:hover {
     margin: 2px;
     color: white;
     background-color: #005B41;
-  }
+}
 
 #track-container {
     position: relative;
@@ -169,7 +169,7 @@ a.social:hover {
     user-select: none; /* -- Prevent image highlighting -- */
 }
 
-#image-track > .image {
+#image-track > img {
     width: 20vmin;
     height: 30vmin;
     object-fit: cover;
