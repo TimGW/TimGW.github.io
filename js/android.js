@@ -7,6 +7,5 @@ android.onclick = function () {
     if (count === threshold) {
         count = 0;
         alert("You are now a developer!");
-        window.location.href = "https://play.google.com/store/apps/developer?id=MittyLabs";
     }
 }
