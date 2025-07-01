@@ -1,0 +1,19 @@
+/* Theme variables and mode classes */
+:root {
+  --bg: #fff;
+  --fg: #222;
+  --card-bg: #f5f5f5;
+  --card-fg: #222;
+}
+.dark-mode {
+  --bg: #181a1b;
+  --fg: #f5f5f5;
+  --card-bg: #23272a;
+  --card-fg: #f5f5f5;
+}
+.light-mode {
+  --bg: #fff;
+  --fg: #222;
+  --card-bg: #f5f5f5;
+  --card-fg: #222;
+}

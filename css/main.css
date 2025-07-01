@@ -8,12 +8,14 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    background-color: #121212;
+    background: var(--bg);
+    color: var(--fg);
+    transition: background 0.2s, color 0.2s;
 }
 
 h1, h2, h3 {
     margin-top: 0;
-    color: white;
+    color: var(--fg);
 }
 
 h1.name {
@@ -23,7 +25,7 @@ h1.name {
 
 p {
     line-height: 1.6;
-    color: white;
+    color: var(--fg);
 }
 
 a {
@@ -31,7 +33,7 @@ a {
 }
 
 table {
-    color: white;
+    color: var(--fg);
 }
 
 .social {
@@ -53,13 +55,14 @@ a.social:hover {
 .card {
     padding: 1.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    background-color: #1e1e1e;
     border-radius: 4px;
-    transition: 0.4s;
     position: relative;
     z-index: 1;
     max-width: 650px;
     margin: 24px auto 24px;
+    background: var(--card-bg);
+    color: var(--card-fg);
+    transition: background 0.2s, color 0.2s;
 }
 
 .intro-card {
@@ -174,6 +177,27 @@ a.social:hover {
     height: 30vmin;
     object-fit: cover;
     object-position: 100% center;
+}
+
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: var(--card-bg);
+  color: var(--card-fg);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.2s, color 0.2s;
 }
 
 
