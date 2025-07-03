@@ -36,6 +36,13 @@ table {
     color: var(--fg);
 }
 
+.link-icon {
+  font-size: 0.5em;  
+  text-decoration: none; 
+  vertical-align: middle;
+  color: inherit;      
+}
+
 .social {
     text-decoration: none;
     color: #005B41;
