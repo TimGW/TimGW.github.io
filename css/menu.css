@@ -65,11 +65,6 @@ a:hover {
     border: 3px dashed #f4a261;
 }
 
-.card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2);
-}
-
 /* Menu items met decoratief randje */
 .menu-item {
     padding: 1rem 0;
