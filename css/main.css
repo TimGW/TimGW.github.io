@@ -3,51 +3,82 @@ html, body {
     min-width: 100%;
     height: 100vh;
     width: 100vw;
-    margin: 0rem;
-    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
+    font-family: "Times New Roman", Times, serif;
     background: var(--bg);
     color: var(--fg);
+    line-height: 1.5;
     transition: background 0.2s, color 0.2s;
+}
+
+body {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.02)),
+        repeating-linear-gradient(
+            0deg,
+            #d8d8d8,
+            #d8d8d8 2px,
+            #d1d1d1 2px,
+            #d1d1d1 4px
+        );
+    background-attachment: fixed;
 }
 
 h1, h2, h3 {
     margin-top: 0;
+    margin-bottom: 0.75rem;
     color: var(--fg);
+    font-weight: bold;
+    letter-spacing: 0.02em;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: "Times New Roman", Times, serif;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid var(--line);
+    margin-bottom: 1rem;
 }
 
 h1.name {
     margin-top: 16px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 p {
-    line-height: 1.6;
+    margin: 0 0 1rem;
+    line-height: 1.7;
     color: var(--fg);
 }
 
 a {
-    color: #005B41;
+    color: var(--accent);
+    text-decoration: underline;
 }
 
 table {
     color: var(--fg);
+    border-collapse: collapse;
+    width: 100%;
 }
 
 .link-icon {
-  font-size: 0.5em;  
-  text-decoration: none; 
-  vertical-align: middle;
-  color: inherit;      
+    font-size: 0.5em;
+    text-decoration: none;
+    vertical-align: middle;
+    color: inherit;
 }
 
 .social {
     text-decoration: none;
-    color: #005B41;
+    color: var(--accent);
     margin-right: 8px;
     margin-bottom: 16px;
+    display: inline-block;
 }
 
 .json {
@@ -56,31 +87,44 @@ table {
 }
 
 a.social:hover {
-    color: #3DDC84;
+    color: #333333;
 }
 
 .card {
     padding: 1.5rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+    box-shadow: 6px 6px 0 var(--shadow);
+    border: 3px solid var(--line);
+    border-radius: 0;
     position: relative;
     z-index: 1;
     max-width: 650px;
     margin: 24px auto 24px;
-    background: var(--card-bg);
+    background: linear-gradient(#f8f8f8, #ebebeb);
     color: var(--card-fg);
     transition: background 0.2s, color 0.2s;
 }
 
+.card::before {
+    content: "";
+    display: block;
+    height: 8px;
+    background: #cfcfcf;
+    border-bottom: 2px solid var(--line);
+    margin: -1.5rem -1.5rem 1rem;
+}
+
 .intro-card {
     min-height: 150px;
+    background: linear-gradient(#f9f9f9, #ededed);
 }
 
 .profile-picture {
     max-width: 150px;
     float: right;
     margin-bottom: 16px;
-    border-radius: 50%;
+    border: 2px solid var(--line);
+    border-radius: 0;
+    background: #ffffff;
 }
 
 .chronotable {
@@ -94,10 +138,14 @@ a.social:hover {
     min-width: 10em;
     max-width: 10em;
     word-break: break-all;
+    font-weight: bold;
+    color: var(--muted);
 }
 
 .chronotable td {
-    padding: 4px;
+    padding: 4px 6px;
+    border: 0;
+    vertical-align: top;
 }
 
 .no-padding-align-top {
@@ -109,6 +157,8 @@ a.social:hover {
 #img-psm {
     display: block;
     height: 70px;
+    border: 1px solid var(--line);
+    background: #ffffff;
 }
 
 .blank_row {
@@ -143,31 +193,35 @@ a.social:hover {
 
 .android-icon {
   width: 80px;
-  fill: var(--bg);
-  transition: fill 0.1s ease;
+  fill: #7d7d7d;
+  transition: fill 0.2s ease;
 }
 
 .android-icon:hover {
-  fill: #3DDC84; /* Android green */
+  fill: #1a1a1a;
 }
 
 #chips > p {
     display: inline-block;
-    padding: 0 10px;
-    height: 25spx;
+    padding: 0 12px;
+    height: 30px;
     font-size: 16px;
     line-height: 30px;
-    border-radius: 25px;
-    margin: 2px;
-    color: white;
-    background-color: #005B41;
+    margin: 4px 6px 4px 0;
+    border: 1px solid var(--line);
+    color: #111111;
+    background: linear-gradient(#efefef, #d8d8d8);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 #track-container {
     position: relative;
     height: 40vmin;
+    border-top: 2px solid var(--line);
+    border-bottom: 2px solid var(--line);
+    background: rgba(255, 255, 255, 0.18);
 }
-    
+
 #image-track {
     display: flex;
     gap: 4vmin;
@@ -175,16 +229,17 @@ a.social:hover {
     left: 50%;
     top: 50%;
     transform: translate(0%, -50%);
-    user-select: none; /* -- Prevent image highlighting -- */
+    user-select: none;
 }
 
 #image-track > .image {
-    height: 35vmin;      
-    width: auto;          
-    object-fit: contain;  
+    height: 35vmin;
+    width: auto;
+    object-fit: contain;
     object-position: center;
-    background: #222;    
-    border-radius: 0.5rem;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    border-radius: 0;
 }
 
 #theme-toggle {
@@ -192,22 +247,25 @@ a.social:hover {
   top: 1rem;
   right: 1rem;
   z-index: 1000;
-  background: var(--card-bg);
-  color: var(--card-fg);
-  border: none;
+  background: #f4f4f4;
+  color: #111111;
+  border: 2px solid #444444;
   width: 48px;
   height: 48px;
-  border-radius: 50%;
+  border-radius: 0;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
   cursor: pointer;
-  box-shadow: 0 2px 8px var(--box-shadow);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
   transition: background 0.2s, color 0.2s;
 }
 
+#theme-toggle:hover {
+    background: #e6e6e6;
+}
 
 @media only screen and (max-width: 801px) {
     .card {
@@ -215,12 +273,7 @@ a.social:hover {
     }
 
     .profile-picture {
-        /* max-width: 200px; */
-        /* float: none; */
         display: none;
-        /* margin-left: auto; */
-        /* margin-right: auto; */
-        /* border-radius: 50%; */
     }
 
     .intro-card {
@@ -228,10 +281,9 @@ a.social:hover {
     }
 
     .chronotable td {
-        vertical-align: top
+        vertical-align: top;
     }
 }
-
 
 @media only screen and (max-width: 481px) {
     .card {
