@@ -11,6 +11,7 @@ html, body {
     color: var(--fg);
     line-height: 1.5;
     transition: background 0.2s, color 0.2s;
+    cursor: none;
 }
 
 body {
@@ -258,13 +259,42 @@ a.social:hover {
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
-  cursor: pointer;
+  cursor: none;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
   transition: background 0.2s, color 0.2s;
 }
 
 #theme-toggle:hover {
     background: #e6e6e6;
+}
+
+#android-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    transform: translate(-4px, 10px);
+    pointer-events: none;
+    z-index: 9999;
+    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.35));
+    transition: transform 0.12s ease, opacity 0.12s ease;
+}
+
+#android-cursor img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    user-select: none;
+    pointer-events: none;
+}
+
+#android-cursor.clicking {
+    transform: translate(-2px, 12px) scale(1.08);
+}
+
+#android-cursor.hidden {
+    opacity: 0;
 }
 
 @media only screen and (max-width: 801px) {
