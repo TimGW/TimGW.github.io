@@ -304,15 +304,19 @@ table {
     color: var(--fg);
 }
 
-.visitor-counter .digits {
-    font-family: var(--font-mono);
-    font-size: 1.6rem;
-    letter-spacing: 3px;
-    background: #000000;
-    color: #ff3333;
-    padding: 2px 8px;
-    border: 2px solid var(--line);
+.visitor-counter .counter-badge-wrap {
+    display: inline-block;
+    line-height: 0;
+    overflow: hidden;
+    border: 3px solid var(--line);
     box-shadow: inset 1px 1px 0 var(--bevel-dark), inset -1px -1px 0 var(--bevel-light);
+}
+
+.visitor-counter .counter-badge {
+    display: block;
+    image-rendering: pixelated;
+    transform: scale(1.1);
+    transform-origin: center;
 }
 
 /* ==== Best-viewed-in badge ==== */
