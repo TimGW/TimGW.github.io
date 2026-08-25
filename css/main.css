@@ -108,7 +108,7 @@ a.social:hover {
 .card::before {
     content: "";
     display: block;
-    height: 8px;
+    height: 16px;
     background: #cfcfcf;
     border-bottom: 2px solid var(--line);
     margin: -1.5rem -1.5rem 1rem;
