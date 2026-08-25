@@ -1,3 +1,12 @@
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+@keyframes marquee-glow {
+  0%, 100% { text-shadow: 0 0 2px currentColor; }
+  50% { text-shadow: 0 0 6px currentColor; }
+}
+
 html, body {
     min-height: 100%;
     min-width: 100%;
@@ -6,7 +15,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-body);
     background: var(--bg);
     color: var(--fg);
     line-height: 1.5;
@@ -16,15 +25,37 @@ html, body {
 
 body {
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.02)),
+        linear-gradient(rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.08)),
         repeating-linear-gradient(
-            0deg,
-            #d8d8d8,
-            #d8d8d8 2px,
-            #d1d1d1 2px,
-            #d1d1d1 4px
+            45deg,
+            var(--bg),
+            var(--bg) 18px,
+            color-mix(in srgb, var(--bg) 85%, #000) 18px,
+            color-mix(in srgb, var(--bg) 85%, #000) 20px
         );
     background-attachment: fixed;
+    position: relative;
+}
+
+/* CRT scanline overlay — invisible unless --scanline is set (terminal mode) */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9998;
+    background: repeating-linear-gradient(
+        0deg,
+        var(--scanline),
+        var(--scanline) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    mix-blend-mode: multiply;
+}
+
+.dark-mode {
+    text-shadow: 0 0 1px currentColor;
 }
 
 h1, h2, h3 {
@@ -33,13 +64,13 @@ h1, h2, h3 {
     color: var(--fg);
     font-weight: bold;
     letter-spacing: 0.02em;
+    font-family: var(--font-display);
 }
 
 h1 {
-    font-size: 2rem;
-    font-family: "Times New Roman", Times, serif;
+    font-size: 1.9rem;
     padding-bottom: 0.45rem;
-    border-bottom: 2px solid var(--line);
+    border-bottom: 3px double var(--line);
     margin-bottom: 1rem;
 }
 
@@ -48,17 +79,20 @@ h1.name {
     margin-bottom: 0;
     border-bottom: none;
     padding-bottom: 0;
+    font-size: 2.1rem;
 }
 
 p {
     margin: 0 0 1rem;
     line-height: 1.7;
     color: var(--fg);
+    font-family: var(--font-body);
 }
 
 a {
     color: var(--accent);
     text-decoration: underline;
+    font-weight: bold;
 }
 
 table {
@@ -68,7 +102,7 @@ table {
 }
 
 .link-icon {
-    font-size: 0.5em;
+    font-size: 0.6em;
     text-decoration: none;
     vertical-align: middle;
     color: inherit;
@@ -77,9 +111,16 @@ table {
 .social {
     text-decoration: none;
     color: var(--accent);
-    margin-right: 8px;
+    margin-right: 10px;
     margin-bottom: 16px;
     display: inline-block;
+    transform: scale(1);
+    transition: transform 0.1s;
+}
+
+.social:hover {
+    transform: scale(1.15);
+    color: var(--accent);
 }
 
 .json {
@@ -87,36 +128,97 @@ table {
     line-height: 0 !important;
 }
 
-a.social:hover {
-    color: #333333;
+/* ==== Retro marquee ribbon ==== */
+.marquee-bar {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--panel-bg), var(--panel-bg) 40px,
+        var(--accent) 40px, var(--accent) 80px
+    );
+    color: var(--panel-fg);
+    border-top: 2px solid var(--line);
+    border-bottom: 2px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    padding: 4px 0;
 }
 
+.marquee-bar marquee {
+    display: block;
+}
+
+.blink {
+    animation: blinker 1s step-start infinite;
+    font-weight: bold;
+}
+
+/* ==== Caution-tape style divider ==== */
+.construction-bar {
+    height: 18px;
+    margin: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffcc00, #ffcc00 14px,
+        #111111 14px, #111111 28px
+    );
+    border-top: 2px solid var(--line);
+    border-bottom: 2px solid var(--line);
+}
+
+/* ==== Windows-95-style window chrome for cards ==== */
 .card {
-    padding: 1.5rem;
-    box-shadow: 6px 6px 0 var(--shadow);
-    border: 3px solid var(--line);
+    padding: 2rem 1.5rem 1.5rem;
+    border: 2px solid var(--line);
+    box-shadow:
+        4px 4px 0 var(--shadow),
+        inset 1px 1px 0 var(--bevel-light),
+        inset -1px -1px 0 var(--bevel-dark);
     border-radius: 0;
     position: relative;
     z-index: 1;
     max-width: 650px;
-    margin: 24px auto 24px;
-    background: linear-gradient(#f8f8f8, #ebebeb);
+    margin: 28px auto 28px;
+    background: var(--card-bg);
     color: var(--card-fg);
     transition: background 0.2s, color 0.2s;
 }
 
 .card::before {
-    content: "";
+    content: attr(data-title);
     display: block;
-    height: 16px;
-    background: #cfcfcf;
+    height: 26px;
+    line-height: 26px;
+    padding: 0 70px 0 10px;
+    margin: -2rem -1.5rem 1.25rem;
+    background: linear-gradient(90deg, var(--panel-bg), color-mix(in srgb, var(--panel-bg) 60%, #000));
+    color: var(--panel-fg);
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
     border-bottom: 2px solid var(--line);
-    margin: -1.5rem -1.5rem 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card::after {
+    content: "_  □  ✕";
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    height: 26px;
+    line-height: 26px;
+    color: var(--panel-fg);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    pointer-events: none;
 }
 
 .intro-card {
     min-height: 150px;
-    background: linear-gradient(#f9f9f9, #ededed);
+    background: var(--card-bg);
 }
 
 .profile-picture {
@@ -126,12 +228,16 @@ a.social:hover {
     border: 2px solid var(--line);
     border-radius: 0;
     background: #ffffff;
+    box-shadow: inset 1px 1px 0 var(--bevel-light), inset -1px -1px 0 var(--bevel-dark);
+    image-rendering: pixelated;
 }
 
 .chronotable {
     border-collapse: collapse;
     width: 100%;
     overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
 }
 
 .chronotable td:first-child {
@@ -158,8 +264,9 @@ a.social:hover {
 #img-psm {
     display: block;
     height: 70px;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     background: #ffffff;
+    box-shadow: inset 1px 1px 0 var(--bevel-light), inset -1px -1px 0 var(--bevel-dark);
 }
 
 .blank_row {
@@ -186,6 +293,41 @@ a.social:hover {
     font-size: 14px;
 }
 
+/* ==== Visitor counter — classic geocities-style digit box ==== */
+.visitor-counter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--fg);
+}
+
+.visitor-counter .digits {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    background: #000000;
+    color: #ff3333;
+    padding: 2px 8px;
+    border: 2px solid var(--line);
+    box-shadow: inset 1px 1px 0 var(--bevel-dark), inset -1px -1px 0 var(--bevel-light);
+}
+
+/* ==== Best-viewed-in badge ==== */
+.best-viewed {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 10px;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    background: var(--panel-bg);
+    color: var(--panel-fg);
+    border: 2px solid var(--line);
+    box-shadow: inset 1px 1px 0 var(--bevel-light), inset -1px -1px 0 var(--bevel-dark);
+}
+
 #android {
   display: flex;
   justify-content: center;
@@ -194,25 +336,27 @@ a.social:hover {
 
 .android-icon {
   width: 80px;
-  fill: #7d7d7d;
+  fill: var(--muted);
   transition: fill 0.2s ease;
 }
 
 .android-icon:hover {
-  fill: #1a1a1a;
+  fill: var(--accent);
 }
 
+/* ==== Skill chips as chunky Win95-style pushbuttons ==== */
 #chips > p {
     display: inline-block;
     padding: 0 12px;
-    height: 30px;
-    font-size: 16px;
-    line-height: 30px;
+    height: 32px;
+    font-size: 1.05rem;
+    font-family: var(--font-mono);
+    line-height: 32px;
     margin: 4px 6px 4px 0;
-    border: 1px solid var(--line);
-    color: #111111;
-    background: linear-gradient(#efefef, #d8d8d8);
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--line);
+    color: var(--chip-fg);
+    background: var(--chip-bg);
+    box-shadow: inset 1px 1px 0 var(--bevel-light), inset -1px -1px 0 var(--bevel-dark);
 }
 
 #track-container {
@@ -220,7 +364,8 @@ a.social:hover {
     height: 40vmin;
     border-top: 2px solid var(--line);
     border-bottom: 2px solid var(--line);
-    background: rgba(255, 255, 255, 0.18);
+    background: var(--card-bg);
+    box-shadow: inset 2px 2px 0 var(--bevel-dark), inset -2px -2px 0 var(--bevel-light);
 }
 
 #image-track {
@@ -239,8 +384,9 @@ a.social:hover {
     object-fit: contain;
     object-position: center;
     background: #ffffff;
-    border: 1px solid var(--line);
+    border: 2px solid var(--line);
     border-radius: 0;
+    box-shadow: 3px 3px 0 var(--shadow);
 }
 
 #theme-toggle {
@@ -248,9 +394,9 @@ a.social:hover {
   top: 1rem;
   right: 1rem;
   z-index: 1000;
-  background: #f4f4f4;
-  color: #111111;
-  border: 2px solid #444444;
+  background: var(--card-bg);
+  color: var(--card-fg);
+  border: 2px solid var(--line);
   width: 48px;
   height: 48px;
   border-radius: 0;
@@ -260,12 +406,12 @@ a.social:hover {
   justify-content: center;
   font-size: 1.4rem;
   cursor: none;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 1px 1px 0 var(--bevel-light), inset -1px -1px 0 var(--bevel-dark), 3px 3px 0 var(--shadow);
   transition: background 0.2s, color 0.2s;
 }
 
-#theme-toggle:hover {
-    background: #e6e6e6;
+#theme-toggle:active {
+    box-shadow: inset -1px -1px 0 var(--bevel-light), inset 1px 1px 0 var(--bevel-dark);
 }
 
 #android-cursor {
@@ -277,8 +423,9 @@ a.social:hover {
     transform: translate(-4px, 10px);
     pointer-events: none;
     z-index: 9999;
-    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.35));
+    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.5));
     transition: transform 0.12s ease, opacity 0.12s ease;
+    image-rendering: pixelated;
 }
 
 #android-cursor img {
@@ -313,13 +460,22 @@ a.social:hover {
     .chronotable td {
         vertical-align: top;
     }
+
+    .marquee-bar {
+        font-size: 1rem;
+    }
 }
 
 @media only screen and (max-width: 481px) {
     .card {
-        padding: 1.0rem;
+        padding: 1.75rem 1.0rem 1.0rem;
         margin: 12px auto 12px;
         border-radius: 0;
+    }
+
+    .card::before {
+        margin: -1.75rem -1.0rem 1.25rem;
+        padding-right: 60px;
     }
 
     .chronotable td:first-child {

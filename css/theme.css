@@ -1,34 +1,74 @@
-/* Theme variables and mode classes */
+/* ============================================================
+   Theme variables — two 90's computing subcultures:
+   .dark-mode  = green-phosphor BBS / terminal mode
+   .light-mode = Windows 95 desktop mode
+   ============================================================ */
 :root {
-  --bg: #d9d9d9;
-  --fg: #111111;
-  --card-bg: #f3f3f3;
-  --card-fg: #111111;
-  --panel-bg: #e4e4e4;
-  --line: #4a4a4a;
-  --accent: #0d2f6b;
-  --muted: #555555;
-  --shadow: rgba(0, 0, 0, 0.28);
+  --bg: #008080;
+  --fg: #000000;
+  --card-bg: #c0c0c0;
+  --card-fg: #000000;
+  --panel-bg: #000080;
+  --panel-fg: #ffffff;
+  --line: #000000;
+  --accent: #0000ee;
+  --visited: #551a8b;
+  --muted: #4d4d4d;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --bevel-light: #ffffff;
+  --bevel-dark: #808080;
+  --chip-bg: #008080;
+  --chip-fg: #ffffff;
+  --scanline: rgba(0,0,0,0);
+  --font-display: "Comic Neue", "Comic Sans MS", cursive, sans-serif;
+  --font-body: "Times New Roman", Times, serif;
+  --font-mono: "VT323", "Courier New", monospace;
 }
+
+/* Terminal / BBS mode (green phosphor CRT) */
 .dark-mode {
-  --bg: #d7d7d7;
-  --fg: #111111;
-  --card-bg: #efefef;
-  --card-fg: #111111;
-  --panel-bg: #e5e5e5;
-  --line: #4a4a4a;
-  --accent: #0d2f6b;
-  --muted: #555555;
-  --shadow: rgba(0, 0, 0, 0.28);
+  --bg: #020402;
+  --fg: #33ff66;
+  --card-bg: #061006;
+  --card-fg: #33ff66;
+  --panel-bg: #0a2a12;
+  --panel-fg: #9dffb0;
+  --line: #33ff66;
+  --accent: #4dffe8;
+  --visited: #29cc55;
+  --muted: #1f9944;
+  --shadow: rgba(51, 255, 102, 0.25);
+  --bevel-light: #6bff96;
+  --bevel-dark: #0a1a0d;
+  --chip-bg: #0a2a12;
+  --chip-fg: #9dffb0;
+  --scanline: rgba(51, 255, 102, 0.06);
 }
+
+/* Windows 95 desktop mode */
 .light-mode {
-  --bg: #d9d9d9;
-  --fg: #111111;
-  --card-bg: #f3f3f3;
-  --card-fg: #111111;
-  --panel-bg: #e4e4e4;
-  --line: #4a4a4a;
-  --accent: #0d2f6b;
-  --muted: #555555;
-  --shadow: rgba(0, 0, 0, 0.28);
+  --bg: #008080;
+  --fg: #000000;
+  --card-bg: #c0c0c0;
+  --card-fg: #000000;
+  --panel-bg: #000080;
+  --panel-fg: #ffffff;
+  --line: #000000;
+  --accent: #0000ee;
+  --visited: #551a8b;
+  --muted: #4d4d4d;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --bevel-light: #ffffff;
+  --bevel-dark: #808080;
+  --chip-bg: #008080;
+  --chip-fg: #ffffff;
+  --scanline: rgba(0,0,0,0);
 }
+
+/* No fancy hand cursor — this desktop uses the custom droid pointer */
+a, a:link, a:visited, a:hover, a:active {
+  cursor: default !important;
+}
+
+a:link { color: var(--accent); }
+a:visited { color: var(--visited); }
