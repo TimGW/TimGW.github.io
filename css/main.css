@@ -216,11 +216,6 @@ table {
     pointer-events: none;
 }
 
-.intro-card {
-    min-height: 150px;
-    background: var(--card-bg);
-}
-
 .profile-picture {
     max-width: 150px;
     float: right;
