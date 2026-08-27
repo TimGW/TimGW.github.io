@@ -23,7 +23,7 @@
     setTheme(isDark);
   });
 
-  // On load: check localStorage or default to dark
+  // On load: check localStorage or default to light
   var saved = localStorage.getItem('theme');
-  setTheme(saved ? saved === 'dark' : true);
+  setTheme(saved ? saved === 'dark' : false);
 })();
